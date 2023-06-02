@@ -47,7 +47,7 @@ const CustomCardStars = styled(Typography)({
 const CardBox = ({ id, image, title, info, price, score }) => {
   return (
     <CustomCard>
-      <CustomCardMedia component="img" image={image} alt={title} />
+      <CustomCardMedia component="img" src={image} alt={title} />
       <CardContent>
         <CustomCardTitle variant="h5" component="div">
           {title}
@@ -80,8 +80,6 @@ const Home = () => {
       title: 'Stadium 1',
       information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam sem ut urna',
       score: 4.5,
-      number: 10,
-      isFree: true,
       price: 12.5,
       region: 'Region 1',
       city: 'City 1',
@@ -92,8 +90,6 @@ const Home = () => {
       title: 'Stadium 2',
       information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam sem ut urna',
       score: 4.2,
-      number: 8,
-      isFree: false,
       price: 12.5,
       region: 'Region 1',
       city: 'City 2',
@@ -104,8 +100,6 @@ const Home = () => {
       title: 'Stadium 3',
       information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam sem ut urna',
       score: 4.8,
-      number: 12,
-      isFree: true,
       price: 12.5,
       region: 'Region 2',
       city: 'City 4',
@@ -116,8 +110,6 @@ const Home = () => {
       title: 'Stadium 2',
       information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam sem ut urna',
       score: 4.2,
-      number: 8,
-      isFree: false,
       price: 12.5,
       region: 'Region 2',
       city: 'City 5',
@@ -125,14 +117,16 @@ const Home = () => {
   ];
 
   const handleRegionChange = (event) => {
-    setSelectedRegion(event.target.value);
+    const region = event.target.value;
+    setSelectedRegion(region);
     setSelectedCity('');
-    filterStadiums(event.target.value, '');
+    filterStadiums(region, '');
   };
 
   const handleCityChange = (event) => {
-    setSelectedCity(event.target.value);
-    filterStadiums(selectedRegion, event.target.value);
+    const city = event.target.value;
+    setSelectedCity(city);
+    filterStadiums(selectedRegion, city);
   };
 
   const filterStadiums = (region, city) => {
@@ -190,15 +184,17 @@ const Home = () => {
 
           <div className="grid-container">
             {filteredStadiums.map((stadium) => (
+            <a href="/stadium">
               <CardBox
-                key={stadium.id}
-                id={stadium.id}
-                image={stadium.image}
-                title={stadium.title}
-                info={stadium.information}
-                price={stadium.price}
-                score={stadium.score}
-              />
+                  key={stadium.id}
+                  id={stadium.id}
+                  image={stadium.image}
+                  title={stadium.title}
+                  info={stadium.information}
+                  price={stadium.price}
+                  score={stadium.score}
+                  />
+            </a>
             ))}
           </div>
         </Container>
