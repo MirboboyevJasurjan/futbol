@@ -14,7 +14,7 @@ const Footer = () => {
                             <i className="fas fa-map-marker-alt"></i>
                             <div className="cta-text">
                                 <h4>Bizning manzil</h4>
-                                <span>Sirdaryo, Guliston</span>
+                                <span>Uzbekistan</span>
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@ const Footer = () => {
                             <i className="far fa-envelope-open"></i>
                             <div className="cta-text">
                                 <h4>Elektron manzil</h4>
-                                <span>Ibber@gmail.com</span>
+                                <span>theFutbol@gmail.com</span>
                             </div>
                         </div>
                     </div>

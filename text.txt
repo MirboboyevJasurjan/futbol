@@ -1,0 +1,25 @@
+Green Grass Field:
+
+Primary Green: #0D823E
+Secondary Green: #106C41
+Accent White: #FFFFFF
+Night Football:
+
+Primary Green: #014D40
+Secondary Black: #000000
+Accent White: #FFFFFF
+Soccer Ball:
+
+Primary Black: #000000
+Secondary White: #FFFFFF
+Accent Green: #0F7C0F
+Stadium Lights:
+
+Primary Green: #006F48
+Secondary Yellow: #FFC800
+Accent Blue: #0032A0
+Goal Net:
+
+Primary Green: #0A663F
+Secondary White: #FFFFFF
+Accent Black: #000000

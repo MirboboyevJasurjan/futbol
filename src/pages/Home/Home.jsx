@@ -46,7 +46,9 @@ const CustomCardStars = styled(Typography)({
 
 const CardBox = ({ id, image, title, info, price, score }) => {
   return (
-    <CustomCard>
+    <CustomCard className='card'>
+      <div className="cardInner">
+
       <CustomCardMedia component="img" src={image} alt={title} />
       <CardContent>
         <CustomCardTitle variant="h5" component="div">
@@ -58,20 +60,21 @@ const CardBox = ({ id, image, title, info, price, score }) => {
         <CustomCardPrice variant="body2">Price: {price} per hour</CustomCardPrice>
         <CustomCardStars variant="body2">Stars: {score}</CustomCardStars>
       </CardContent>
+      </div>
     </CustomCard>
   );
 };
 
 const Home = () => {
-  const [selectedRegion, setSelectedRegion] = useState('');
-  const [selectedCity, setSelectedCity] = useState('');
+  const [selectedviloyat, setSelectedviloyat] = useState('');
+  const [selectedshahar, setSelectedshahar] = useState('');
   const [filteredStadiums, setFilteredStadiums] = useState([]);
 
-  const regions = ['Region 1', 'Region 2', 'Region 3'];
-  const citiesByRegion = {
-    'Region 1': ['City 1', 'City 2', 'City 3'],
-    'Region 2': ['City 4', 'City 5', 'City 6'],
-    'Region 3': ['City 7', 'City 8', 'City 9'],
+  const viloyats = ['viloyat 1', 'viloyat 2', 'viloyat 3'];
+  const citiesByviloyat = {
+    'viloyat 1': ['shahar 1', 'shahar 2', 'shahar 3'],
+    'viloyat 2': ['shahar 4', 'shahar 5', 'shahar 6'],
+    'viloyat 3': ['shahar 7', 'shahar 8', 'shahar 9'],
   };
   const stadiums = [
     {
@@ -81,8 +84,8 @@ const Home = () => {
       information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam sem ut urna',
       score: 4.5,
       price: 12.5,
-      region: 'Region 1',
-      city: 'City 1',
+      viloyat: 'viloyat 1',
+      shahar: 'shahar 1',
     },
     {
       id: 2,
@@ -91,8 +94,8 @@ const Home = () => {
       information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam sem ut urna',
       score: 4.2,
       price: 12.5,
-      region: 'Region 1',
-      city: 'City 2',
+      viloyat: 'viloyat 1',
+      shahar: 'shahar 2',
     },
     {
       id: 3,
@@ -101,8 +104,8 @@ const Home = () => {
       information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam sem ut urna',
       score: 4.8,
       price: 12.5,
-      region: 'Region 2',
-      city: 'City 4',
+      viloyat: 'viloyat 2',
+      shahar: 'shahar 4',
     },
     {
       id: 4,
@@ -111,35 +114,35 @@ const Home = () => {
       information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam sem ut urna',
       score: 4.2,
       price: 12.5,
-      region: 'Region 2',
-      city: 'City 5',
+      viloyat: 'viloyat 2',
+      shahar: 'shahar 5',
     },
   ];
 
-  const handleRegionChange = (event) => {
-    const region = event.target.value;
-    setSelectedRegion(region);
-    setSelectedCity('');
-    filterStadiums(region, '');
+  const handleviloyatChange = (event) => {
+    const viloyat = event.target.value;
+    setSelectedviloyat(viloyat);
+    setSelectedshahar('');
+    filterStadiums(viloyat, '');
   };
 
-  const handleCityChange = (event) => {
-    const city = event.target.value;
-    setSelectedCity(city);
-    filterStadiums(selectedRegion, city);
+  const handleshaharChange = (event) => {
+    const shahar = event.target.value;
+    setSelectedshahar(shahar);
+    filterStadiums(selectedviloyat, shahar);
   };
 
-  const filterStadiums = (region, city) => {
-    if (region === '' && city === '') {
+  const filterStadiums = (viloyat, shahar) => {
+    if (viloyat === '' && shahar === '') {
       setFilteredStadiums(stadiums);
-    } else if (region !== '' && city === '') {
-      const filteredByRegion = stadiums.filter((stadium) => stadium.region === region);
-      setFilteredStadiums(filteredByRegion);
-    } else if (region !== '' && city !== '') {
-      const filteredByRegionAndCity = stadiums.filter(
-        (stadium) => stadium.region === region && stadium.city === city
+    } else if (viloyat !== '' && shahar === '') {
+      const filteredByviloyat = stadiums.filter((stadium) => stadium.viloyat === viloyat);
+      setFilteredStadiums(filteredByviloyat);
+    } else if (viloyat !== '' && shahar !== '') {
+      const filteredByviloyatAndshahar = stadiums.filter(
+        (stadium) => stadium.viloyat === viloyat && stadium.shahar === shahar
       );
-      setFilteredStadiums(filteredByRegionAndCity);
+      setFilteredStadiums(filteredByviloyatAndshahar);
     } else {
       setFilteredStadiums([]);
     }
@@ -150,38 +153,41 @@ const Home = () => {
       <Navbar />
       <div className="body_page">
         <Container>
+          {/* Filter */}
           <div className="filter">
+            <p className='namesFilter'>{selectedviloyat ? selectedviloyat : "Viloyat"}, {selectedshahar ? selectedshahar : "Shahar/Tuman"} </p>
             <FormControl variant="outlined" sx={{ minWidth: 200, marginRight: 10 }}>
-              <InputLabel>Region</InputLabel>
-              <Select value={selectedRegion} onChange={handleRegionChange} label="Region">
-                <MenuItem value="">All Regions</MenuItem>
-                {regions.map((region) => (
-                  <MenuItem key={region} value={region}>
-                    {region}
+              <InputLabel>viloyat</InputLabel>
+              <Select value={selectedviloyat} onChange={handleviloyatChange} label="viloyat" id="selectViloyat">
+                <MenuItem value="">Barcha viloyatlar</MenuItem>
+                {viloyats.map((viloyat) => (
+                  <MenuItem key={viloyat} value={viloyat}>
+                    {viloyat}
                   </MenuItem>
                 ))}
               </Select>
             </FormControl>
 
             <FormControl variant="outlined" sx={{ minWidth: 200, marginRight: 10 }}>
-              <InputLabel>City</InputLabel>
+              <InputLabel>shahar</InputLabel>
               <Select
-                value={selectedCity}
-                onChange={handleCityChange}
-                label="City"
-                disabled={!selectedRegion}
+                value={selectedshahar}
+                onChange={handleshaharChange}
+                label="shahar"
+                disabled={!selectedviloyat}
+                id='selectShahar'
               >
-                <MenuItem value="">All Cities</MenuItem>
-                {citiesByRegion[selectedRegion] &&
-                  citiesByRegion[selectedRegion].map((city) => (
-                    <MenuItem key={city} value={city}>
-                      {city}
+                <MenuItem value="">Barcha shahar/tumanlar</MenuItem>
+                {citiesByviloyat[selectedviloyat] &&
+                  citiesByviloyat[selectedviloyat].map((shahar) => (
+                    <MenuItem key={shahar} value={shahar}>
+                      {shahar}
                     </MenuItem>
                   ))}
               </Select>
             </FormControl>
-          </div>
-
+          </div> 
+          {/* Cards */}
           <div className="grid-container">
             {filteredStadiums.map((stadium) => (
             <a href="/stadium">
@@ -193,6 +199,7 @@ const Home = () => {
                   info={stadium.information}
                   price={stadium.price}
                   score={stadium.score}
+                  className="card"
                   />
             </a>
             ))}

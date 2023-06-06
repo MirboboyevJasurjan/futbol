@@ -1,6 +1,5 @@
 .footer__row {
     width: 100% !important;
-    margin-top: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
