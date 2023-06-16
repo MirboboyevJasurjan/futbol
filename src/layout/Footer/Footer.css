@@ -1,12 +1,12 @@
 .footer__row {
-    width: 100% !important;
+    /* width: 100% !important; */
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
   }
   .rowFooter   {
-    width: 100% !important;
+    /* width: 100% !important; */
 
     display: flex;
     flex-direction: row !important;
@@ -20,6 +20,7 @@
   .footer-section {
     background: #151414;
     position: relative;
+    width: 100% !important;
   }
   .footer-cta {
     border-bottom: 1px solid #373636;

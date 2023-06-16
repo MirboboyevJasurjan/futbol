@@ -14,6 +14,10 @@ import { styled } from '@mui/system';
 import Navbar from '../../layout/Navbar/Navbar';
 import Footer from '../../layout/Footer/Footer';
 import './Home.css';
+import img1 from '../../assets/banner1.jpg';
+import img2 from '../../assets/stadium.jpg';
+
+
 
 const CustomCard = styled(Card)({
   width: '100%',
@@ -79,7 +83,7 @@ const Home = () => {
   const stadiums = [
     {
       id: 1,
-      image: 'stadium1.jpg',
+      image: img1,
       title: 'Stadium 1',
       information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam sem ut urna',
       score: 4.5,
@@ -89,7 +93,7 @@ const Home = () => {
     },
     {
       id: 2,
-      image: 'stadium2.jpg',
+      image: img1,
       title: 'Stadium 2',
       information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam sem ut urna',
       score: 4.2,
@@ -99,7 +103,7 @@ const Home = () => {
     },
     {
       id: 3,
-      image: 'stadium3.jpg',
+      image: img1,
       title: 'Stadium 3',
       information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam sem ut urna',
       score: 4.8,
@@ -109,7 +113,7 @@ const Home = () => {
     },
     {
       id: 4,
-      image: 'stadium2.jpg',
+      image: img1,
       title: 'Stadium 2',
       information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam sem ut urna',
       score: 4.2,
